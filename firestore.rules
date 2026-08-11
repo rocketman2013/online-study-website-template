@@ -1,0 +1,41 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // A browser may submit one response document under its own anonymous-auth UID.
+    // Researchers inspect/export data in the Firebase Console or with the Admin SDK.
+    match /studies/{studySlug}/responses/{responseId} {
+      allow create: if request.auth != null
+        // Change this string when you change studySlug in public/js/config.js.
+        && studySlug == 'online-study-template'
+        && responseId == request.auth.uid
+        && request.resource.data.firebaseUid == request.auth.uid
+        && request.resource.data.studySlug == studySlug
+        && request.resource.data.consented == true
+        && request.resource.data.schemaVersion == 1
+        && request.resource.data.trialResponses is list
+        && request.resource.data.trialResponses.size() > 0
+        && request.resource.data.trialResponses.size() <= 500
+        && request.resource.data.keys().hasOnly([
+          'schemaVersion',
+          'clientResponseId',
+          'studySlug',
+          'participant',
+          'consented',
+          'startedAt',
+          'completedAt',
+          'userAgent',
+          'viewport',
+          'trialResponses',
+          'firebaseUid',
+          'submittedAt'
+        ]);
+
+      allow read, update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

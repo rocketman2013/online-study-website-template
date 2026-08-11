@@ -1,0 +1,10 @@
+[
+  { "trialId": "practice-01", "leftSize": 116, "rightSize": 82, "correctSide": "left", "condition": "easy" },
+  { "trialId": "practice-02", "leftSize": 88, "rightSize": 122, "correctSide": "right", "condition": "easy" },
+  { "trialId": "main-01", "leftSize": 104, "rightSize": 118, "correctSide": "right", "condition": "close" },
+  { "trialId": "main-02", "leftSize": 126, "rightSize": 96, "correctSide": "left", "condition": "easy" },
+  { "trialId": "main-03", "leftSize": 112, "rightSize": 98, "correctSide": "left", "condition": "close" },
+  { "trialId": "main-04", "leftSize": 92, "rightSize": 124, "correctSide": "right", "condition": "easy" },
+  { "trialId": "main-05", "leftSize": 108, "rightSize": 120, "correctSide": "right", "condition": "close" },
+  { "trialId": "main-06", "leftSize": 128, "rightSize": 100, "correctSide": "left", "condition": "easy" }
+]

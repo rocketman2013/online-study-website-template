@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A teaching template for browser-based behavioral studies.">
+    <title>Online Study Template</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="study-shell">
+      <header class="study-header">
+        <p class="eyebrow">Example behavioral study</p>
+        <h1>Which circle is larger?</h1>
+        <div class="progress" aria-label="Study progress">
+          <div id="progress-bar" class="progress__bar"></div>
+        </div>
+        <p id="progress-label" class="progress__label">Welcome</p>
+      </header>
+
+      <section id="welcome-screen" class="card screen">
+        <h2>Welcome</h2>
+        <p>
+          This short demonstration shows two circles on every trial. Your task is to
+          choose the larger circle. It should take less than a minute.
+        </p>
+        <div class="notice">
+          <strong>Template notice:</strong> Replace this text with your IRB-approved
+          study information before collecting real data.
+        </div>
+        <form id="consent-form">
+          <label class="check-row">
+            <input id="consent-checkbox" type="checkbox" required>
+            <span>I have read the study information and agree to participate.</span>
+          </label>
+          <button class="button" type="submit">Continue</button>
+        </form>
+      </section>
+
+      <section id="instructions-screen" class="card screen" hidden>
+        <h2>Instructions</h2>
+        <ul>
+          <li>Two circles will appear side by side.</li>
+          <li>Click the circle that looks larger.</li>
+          <li>Please respond as accurately as you can.</li>
+        </ul>
+        <p class="keyboard-hint">Keyboard: press <kbd>F</kbd> for left or <kbd>J</kbd> for right.</p>
+        <button id="start-button" class="button" type="button">Start study</button>
+      </section>
+
+      <section id="trial-screen" class="card screen trial-screen" hidden aria-live="polite">
+        <p class="trial-prompt">Select the larger circle</p>
+        <div id="stimulus-area" class="stimulus-area"></div>
+        <p class="keyboard-hint">F = left &nbsp; J = right</p>
+      </section>
+
+      <section id="saving-screen" class="card screen center" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <h2>Saving your responses…</h2>
+        <p>Please do not close this page.</p>
+      </section>
+
+      <section id="complete-screen" class="card screen center" hidden>
+        <h2>Study complete</h2>
+        <p id="save-message">Your responses were saved. Thank you!</p>
+        <a id="completion-link" class="button button--link" href="#" hidden>Return to Prolific</a>
+        <button id="download-button" class="button button--secondary" type="button" hidden>
+          Download demo data
+        </button>
+      </section>
+
+      <section id="error-screen" class="card screen center" hidden>
+        <h2>Something went wrong</h2>
+        <p id="error-message"></p>
+        <button class="button" type="button" onclick="window.location.reload()">Try again</button>
+      </section>
+    </main>
+
+    <noscript>This study requires JavaScript. Please enable it and reload the page.</noscript>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
